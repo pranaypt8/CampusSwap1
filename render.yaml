@@ -3,7 +3,7 @@ services:
     name: campusswap
     runtime: node
     plan: free
-    buildCommand: "cd client && npm install && npm run build && cd ../server && npm install"
+    buildCommand: "cd client && npm install --include=dev && npm run build && cd ../server && npm install"
     startCommand: "node server/server.js"
     healthCheckPath: /api/health
     envVars:
@@ -19,3 +19,4 @@ services:
         sync: false
       - key: CLOUDINARY_API_SECRET
         sync: false
+Fix build: include devDependencies
